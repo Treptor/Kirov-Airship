@@ -192,8 +192,8 @@ void mouseWheelEvent(OpenGL *ogl, int delta)
 
 }
 
-int bombTrigger = 0, rotationMultiplier=5, rotationMultiplierV = 5, bombStablePhase1 = 0, bombStablePhase2 = 0;
-double bombDegree = 0, bombDegreeMult = 1, bombX=0, bombZ = 0, bombZmult = 0.001, exploScale = 0;
+int bombTrigger = 0, rotationMultiplier=0, rotationMultiplierV = 0, bombStablePhase1 = 0, bombStablePhase2 = 0,rotationMultiplierH=0;
+double bombDegree = 0, bombDegreeMult = 1, bombX = 0, bombZ = 0, bombZmult = 0.001, exploScale = 0, groundLevel = 56, groundX=0;
 
 void keyDownEvent(OpenGL *ogl, int key)
 {
@@ -1366,7 +1366,52 @@ void DrawCockpit()
 	double btmMidL[] = { 3.5,-0.5,-2.5 }, btmMidR[] = { 3.5,0.5,-2.5 };
 	double SideMidL[] = { 3.5,-0.8,-1.5 }, SideMidR[] = { 3.5,0.8,-1.5 };
 	double SideTopL[] = { 3.5,-0.5,-1 }, SideTopR[] = { 3.5,0.5,-1 };
+
+	if (textureMode)
+	{
+		GLfloat amb[] = { 0.15, 0.15, 0.15, 1. };
+		GLfloat dif[] = { 0.1, 0.1, 0.1, 1. };
+		GLfloat spec[] = { 0.33, 0.33, 0.33, 1. };
+		GLfloat sh = 0.4f * 256;
+
+		glMaterialfv(GL_FRONT, GL_AMBIENT, amb);
+		//дифузная
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, dif);
+		//зеркальная
+		glMaterialfv(GL_FRONT, GL_SPECULAR, spec);
+		//размер блика
+		glMaterialf(GL_FRONT, GL_SHININESS, sh);
+	}
+	DrawPlaneQuadN(baseStrBBL, baseStrBBR, wdwFrontTR, wdwFrontTL);
+	DrawPlaneQuadN(wdwFrontTL, wdwFrontTR, wdwFrontBR, wdwFrontBL);
+	DrawPlaneQuad(baseStrFBL, baseStrFBR, wdwBackTR, wdwBackTL);
+	DrawPlaneQuad(wdwBackTL, wdwBackTR, wdwBackBR, wdwBackBL);
+	DrawPlaneQuad(btmMidL, btmMidR, wdwFrontBR, wdwFrontBL);
+	DrawPlaneQuadN(SideMidR, btmMidR, wdwFrontBR, wdwFrontTR);
+	DrawPlaneQuad(SideMidL, btmMidL, wdwFrontBL, wdwFrontTL);
+	DrawPlaneQuadN(SideMidL, SideTopL, baseStrBBL, wdwFrontTL);
+	DrawPlaneQuad(SideMidR, SideTopR, baseStrBBR, wdwFrontTR);
 	
+	if(textureMode)
+	{
+	GLfloat amb[] = { 0.33, 0.33, 0.33, 1. };
+	GLfloat dif[] = { 0.47, 0.47, 0.47, 1. };
+	GLfloat spec[] = { 0.53, 0.53, 0.53, 1. };
+	GLfloat sh = 0.4f * 256;
+
+	glMaterialfv(GL_FRONT, GL_AMBIENT, amb);
+	//дифузная
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, dif);
+	//зеркальная
+	glMaterialfv(GL_FRONT, GL_SPECULAR, spec); 
+	//размер блика
+	glMaterialf(GL_FRONT, GL_SHININESS, sh);
+	}
+	DrawPlaneQuad(SideMidL, SideTopL, baseStrFBL, wdwBackTL);
+	DrawPlaneQuadN(SideMidR, SideTopR, baseStrFBR, wdwBackTR);
+	DrawPlaneQuad(SideMidR, btmMidR, wdwBackBR, wdwBackTR);
+	DrawPlaneQuadN(SideMidL, btmMidL, wdwBackBL, wdwBackTL);
+	DrawPlaneQuadN(btmMidL, btmMidR, wdwBackBR, wdwBackBL);
 	DrawPlaneQuadN(baseFTL, baseFTR, baseFBR, baseFBL);
 	DrawPlaneQuad(baseBTL, baseBTR, baseBBR, baseBBL);
 	DrawPlaneQuad(baseFTL, baseBTL, baseBBL, baseFBL);
@@ -1375,22 +1420,6 @@ void DrawCockpit()
 	DrawPlaneQuadN(baseStrFBL, baseStrFBR, baseBBR, baseBBL);
 	DrawPlaneQuad(baseStrBBL, baseFBL, baseBBL, baseStrFBL);
 	DrawPlaneQuadN(baseStrBBR, baseFBR, baseBBR, baseStrFBR);
-	DrawPlaneQuadN(baseStrBBL, baseStrBBR, wdwFrontTR, wdwFrontTL);
-	DrawPlaneQuadN(wdwFrontTL, wdwFrontTR, wdwFrontBR, wdwFrontBL);
-	DrawPlaneQuad(baseStrFBL, baseStrFBR, wdwBackTR, wdwBackTL);
-	DrawPlaneQuad(wdwBackTL, wdwBackTR, wdwBackBR, wdwBackBL);
-	DrawPlaneQuadN(btmMidL, btmMidR, wdwBackBR, wdwBackBL);
-	DrawPlaneQuad(btmMidL, btmMidR, wdwFrontBR, wdwFrontBL);
-	DrawPlaneQuadN(SideMidR, btmMidR, wdwFrontBR, wdwFrontTR);
-	DrawPlaneQuad(SideMidL, btmMidL, wdwFrontBL, wdwFrontTL);
-	DrawPlaneQuad(SideMidR, btmMidR, wdwBackBR, wdwBackTR);
-	DrawPlaneQuadN(SideMidL, btmMidL, wdwBackBL, wdwBackTL);
-
-	DrawPlaneQuadN(SideMidL, SideTopL, baseStrBBL, wdwFrontTL);
-	DrawPlaneQuad(SideMidR, SideTopR, baseStrBBR, wdwFrontTR);
-	DrawPlaneQuad(SideMidL, SideTopL, baseStrFBL, wdwBackTL);
-	DrawPlaneQuadN(SideMidR, SideTopR, baseStrFBR, wdwBackTR);
-
 }
 
 void DrawBombStack()
@@ -1482,7 +1511,7 @@ double RotorRotation = 0, RotorRotationV = 0;
 
 void BombDrop()
 {
-	if (bombZ < 50)
+	if (bombZ < groundLevel-6)
 	{
 		bombZ += bombZmult;
 		bombZmult += 0.02;
@@ -1510,13 +1539,25 @@ void BombDrop()
 	}
 }
 
+void Movement()
+{
+	if (rotationMultiplierV > 0 && groundLevel < 100)
+		groundLevel += rotationMultiplierV*0.01;
+	if (rotationMultiplierV < 0 && groundLevel > 30)
+		groundLevel += rotationMultiplierV*0.01;
+	if (rotationMultiplier > 0 && groundX < 200)
+		groundX -= rotationMultiplier*0.01;
+	if (rotationMultiplier < 0 && groundX > -200)
+		groundX -= rotationMultiplier*0.01;
+}
+
 void Render(OpenGL *ogl)
 {       
 
 	GLfloat amb[] = { 0.33, 0.33, 0.33, 1. };
 	GLfloat dif[] = { 0.47, 0.47, 0.47, 1. };
 	GLfloat spec[] = { 0.53, 0.53, 0.53, 1. };
-	GLfloat sh = 0.9f * 256;
+	GLfloat sh = 0.4f * 256;
 	
 	glDisable(GL_TEXTURE_2D);
 	glDisable(GL_LIGHTING);
@@ -1861,14 +1902,16 @@ void Render(OpenGL *ogl)
 
 	glPushMatrix();
 	glBegin(GL_QUADS);
-	glVertex3d(-50, 50, -56);
-	glVertex3d(50, 50, -56);
-	glVertex3d(50, -50, -56);
-	glVertex3d(-50, -50, -56);
+	glVertex3d(-80+groundX, 80, -groundLevel);
+	glVertex3d(80 + groundX, 80, -groundLevel);
+	glVertex3d(80 + groundX, -80, -groundLevel);
+	glVertex3d(-80 + groundX, -80, -groundLevel);
 	glEnd();
 	glPopMatrix();
 
 	glClearColor(0.4, 0.61, 0.68, 1.0);
+
+	Movement();
 
 	if (RotorRotation >= (360 - 1.5*rotationMultiplier)|| RotorRotation <= (-360 - 1.5*rotationMultiplier))
 		RotorRotation = 0;
