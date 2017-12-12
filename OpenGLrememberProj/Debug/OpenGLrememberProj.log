@@ -1,0 +1,20 @@
+﻿  Render.cpp
+f:\stud\graphoox\fetisov\qoorsach 2\grafika_lab2-master\openglrememberproj\render.cpp(109): warning C4838: преобразование из "double" в "GLfloat" требует сужающего преобразования
+f:\stud\graphoox\fetisov\qoorsach 2\grafika_lab2-master\openglrememberproj\render.cpp(111): warning C4838: преобразование из "double" в "GLfloat" требует сужающего преобразования
+f:\stud\graphoox\fetisov\qoorsach 2\grafika_lab2-master\openglrememberproj\render.cpp(112): warning C4838: преобразование из "double" в "GLfloat" требует сужающего преобразования
+f:\stud\graphoox\fetisov\qoorsach 2\grafika_lab2-master\openglrememberproj\render.cpp(1516): warning C4838: преобразование из "double" в "GLfloat" требует сужающего преобразования
+f:\stud\graphoox\fetisov\qoorsach 2\grafika_lab2-master\openglrememberproj\render.cpp(1517): warning C4838: преобразование из "double" в "GLfloat" требует сужающего преобразования
+f:\stud\graphoox\fetisov\qoorsach 2\grafika_lab2-master\openglrememberproj\render.cpp(1518): warning C4838: преобразование из "double" в "GLfloat" требует сужающего преобразования
+f:\stud\graphoox\fetisov\qoorsach 2\grafika_lab2-master\openglrememberproj\render.cpp(1636): warning C4838: преобразование из "double" в "GLfloat" требует сужающего преобразования
+f:\stud\graphoox\fetisov\qoorsach 2\grafika_lab2-master\openglrememberproj\render.cpp(1637): warning C4838: преобразование из "double" в "GLfloat" требует сужающего преобразования
+f:\stud\graphoox\fetisov\qoorsach 2\grafika_lab2-master\openglrememberproj\render.cpp(1638): warning C4838: преобразование из "double" в "GLfloat" требует сужающего преобразования
+f:\stud\graphoox\fetisov\qoorsach 2\grafika_lab2-master\openglrememberproj\render.cpp(1764): warning C4838: преобразование из "double" в "GLfloat" требует сужающего преобразования
+f:\stud\graphoox\fetisov\qoorsach 2\grafika_lab2-master\openglrememberproj\render.cpp(1765): warning C4838: преобразование из "double" в "GLfloat" требует сужающего преобразования
+f:\stud\graphoox\fetisov\qoorsach 2\grafika_lab2-master\openglrememberproj\render.cpp(1766): warning C4838: преобразование из "double" в "GLfloat" требует сужающего преобразования
+f:\stud\graphoox\fetisov\qoorsach 2\grafika_lab2-master\openglrememberproj\render.cpp(1783): warning C4838: преобразование из "double" в "GLfloat" требует сужающего преобразования
+f:\stud\graphoox\fetisov\qoorsach 2\grafika_lab2-master\openglrememberproj\render.cpp(1784): warning C4838: преобразование из "double" в "GLfloat" требует сужающего преобразования
+f:\stud\graphoox\fetisov\qoorsach 2\grafika_lab2-master\openglrememberproj\render.cpp(1785): warning C4838: преобразование из "double" в "GLfloat" требует сужающего преобразования
+f:\stud\graphoox\fetisov\qoorsach 2\grafika_lab2-master\openglrememberproj\render.cpp(1852): warning C4838: преобразование из "double" в "GLfloat" требует сужающего преобразования
+f:\stud\graphoox\fetisov\qoorsach 2\grafika_lab2-master\openglrememberproj\render.cpp(1853): warning C4838: преобразование из "double" в "GLfloat" требует сужающего преобразования
+f:\stud\graphoox\fetisov\qoorsach 2\grafika_lab2-master\openglrememberproj\render.cpp(1854): warning C4838: преобразование из "double" в "GLfloat" требует сужающего преобразования
+  OpenGLrememberProj.vcxproj -> F:\Stud\GRAPHOOX\fetisov\QOORSACH 2\grafika_lab2-master\Debug\OpenGLrememberProj.exe
