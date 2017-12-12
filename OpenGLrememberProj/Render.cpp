@@ -1545,9 +1545,9 @@ void Movement()
 		groundLevel += rotationMultiplierV*0.01;
 	if (rotationMultiplierV < 0 && groundLevel > 30)
 		groundLevel += rotationMultiplierV*0.01;
-	if (rotationMultiplier > 0 && groundX < 200)
+	if (rotationMultiplier < 0 && groundX < 100)
 		groundX -= rotationMultiplier*0.01;
-	if (rotationMultiplier < 0 && groundX > -200)
+	if (rotationMultiplier > 0 && groundX > -100)
 		groundX -= rotationMultiplier*0.01;
 }
 
@@ -1902,10 +1902,10 @@ void Render(OpenGL *ogl)
 
 	glPushMatrix();
 	glBegin(GL_QUADS);
-	glVertex3d(-80+groundX, 80, -groundLevel);
-	glVertex3d(80 + groundX, 80, -groundLevel);
-	glVertex3d(80 + groundX, -80, -groundLevel);
-	glVertex3d(-80 + groundX, -80, -groundLevel);
+	glVertex3d(-180+groundX, 180, -groundLevel);
+	glVertex3d(180 + groundX, 180, -groundLevel);
+	glVertex3d(180 + groundX, -180, -groundLevel);
+	glVertex3d(-180 + groundX, -180, -groundLevel);
 	glEnd();
 	glPopMatrix();
 
